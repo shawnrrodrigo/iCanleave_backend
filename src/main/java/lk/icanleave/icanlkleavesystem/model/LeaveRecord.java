@@ -1,12 +1,18 @@
 package lk.icanleave.icanlkleavesystem.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Data
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "Leave_record")
 public class LeaveRecord {
     @Id

@@ -6,19 +6,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "team")
-public class Team {
+public class Permission {
     @Id
-    private String teamId;
-    private String teamName;
-    private String teamLeader;
-    // recheck team
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int permission_id;
+
+    private String permission_name;
 }
