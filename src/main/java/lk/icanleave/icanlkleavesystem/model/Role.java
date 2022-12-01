@@ -1,17 +1,32 @@
 package lk.icanleave.icanlkleavesystem.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lk.icanleave.icanlkleavesystem.model.customEnum.RoleStatus;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "roles")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name = "Roles")
 public class Role {
     @Id
-    private String roleId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int roleId;
+
     private String roleName;
+
     private String createdBy;
+
     private Date createdDate;
-    private Enum status;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="role_status")
+    private RoleStatus status;
 }
