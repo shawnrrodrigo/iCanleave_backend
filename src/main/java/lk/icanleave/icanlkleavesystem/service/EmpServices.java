@@ -1,7 +1,9 @@
 package lk.icanleave.icanlkleavesystem.service;
 
 import lk.icanleave.icanlkleavesystem.repository.EmpRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EmpServices {
     private final EmpRepository empRepository;
 
