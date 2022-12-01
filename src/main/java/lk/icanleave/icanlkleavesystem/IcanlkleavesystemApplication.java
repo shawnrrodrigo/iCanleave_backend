@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class IcanlkleavesystemApplication implements CommandLineRunner {
@@ -33,5 +34,13 @@ public class IcanlkleavesystemApplication implements CommandLineRunner {
         emp1.setEmail("naween@gmail.com");
         emp1.setPhone("0775232345");
         empRepository.save(emp1);
+
+        Employee emp2 = new Employee();
+        emp2.setEmpId("e0003");
+        emp2.setEmpName("Kavira");
+        emp2.setEmail("kavira@gmail.com");
+        emp2.setPhone("0775232345");
+        emp2.setDob(LocalDate.of(1998, 9, 12));
+        empRepository.save(emp2);
     }
 }
