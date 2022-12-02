@@ -1,8 +1,8 @@
 package lk.icanleave.icanlkleavesystem.repository;
 
-import lk.icanleave.icanlkleavesystem.model.Leave;
+import lk.icanleave.icanlkleavesystem.model.LeaveRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LeaveRepository extends JpaRepository<Leave, String> {
+public interface LeaveRepository extends JpaRepository<LeaveRecord, String> {
 
 }
