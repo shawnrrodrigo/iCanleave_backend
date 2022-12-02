@@ -5,20 +5,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Permission {
+public class Leave_Type {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int permission_id;
+    @Column(name = "leave_type_id")
+    private int id;
 
-    private String permission_name;
+    private String leave_type;
+    private  String leave_code;
 }
