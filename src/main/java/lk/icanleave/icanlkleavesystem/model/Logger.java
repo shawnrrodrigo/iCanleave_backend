@@ -12,14 +12,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "team")
-public class Team {
+public class Logger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
-    private String name;
-
-    @OneToOne
-    private Employee teamLeader;
+    @Column(length = 200)
+    private String log;
 }

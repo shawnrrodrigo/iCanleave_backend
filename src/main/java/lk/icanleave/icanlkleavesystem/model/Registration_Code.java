@@ -1,6 +1,5 @@
 package lk.icanleave.icanlkleavesystem.model;
 
-import lk.icanleave.icanlkleavesystem.model.customEnum.RoleStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,22 +13,19 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Role {
+@Table(name="registration_code")
+public class Registration_Code {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "created_by",referencedColumnName = "id")
-    private Employee employee;
+    private String value;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
+    @Column(name = "created_date",nullable = false)
     private Date createdTimeStamp = new Date(System.currentTimeMillis());
 
-    @Enumerated(EnumType.STRING)
-    @Column(name="role_status")
-    private RoleStatus status;
+    @OneToOne
+    @JoinColumn(name = "employee_id",referencedColumnName = "id")
+    private Employee employee;
 }
