@@ -1,6 +1,5 @@
 package lk.icanleave.icanlkleavesystem.model;
 //resolving roleback issue
-import lk.icanleave.icanlkleavesystem.model.customEnum.RoleStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,18 +13,18 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Role {
+public class Forgot_password {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int roleId;
+    private int id;
 
-    private String roleName;
+    private String value;
 
-    private String createdBy;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_date",nullable = false)
+    private Date createdTimeStamp = new Date(System.currentTimeMillis());
 
-    private Date createdDate;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name="role_status")
-    private RoleStatus status;
+    @OneToOne
+    @JoinColumn(name = "employee_id",referencedColumnName = "id")
+    private Employee employee;
 }
