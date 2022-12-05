@@ -1,44 +1,72 @@
 package lk.icanleave.icanlkleavesystem.model;
 
-import lombok.Data;
+import lk.icanleave.icanlkleavesystem.model.customEnum.UserStatus;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
-@Data
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name="Employee")
 public class Employee {
     @Id
-    @Column(name ="emp_id")
-    private String empId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(length = 5)
+    private int id;
 
-    @Column(name = "emp_name")
-    private String empName;
+    @Column(nullable = false)
+    private String name;
 
-    @Column(name = "date_of_birth")
+    @Column(nullable = false)
     private LocalDate dob;
 
-    @Column(name = "email")
+    @Column(nullable = false)
     private String email;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "joined_date")
-    private Date joinedDate = new Date(System.currentTimeMillis());
+    private String password;
 
-    @Column(name = "phone")
+    @Column(nullable = false,length = 14)
     private String phone;
 
-    @Column(name = "position")
-    private Enum position;
+    @Enumerated(EnumType.STRING)
+    private UserStatus status;
 
-    @Column(name = "ref_person") //emergency contact person
-    private String referencePerson;
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
+    private Date joinedDate = new Date(System.currentTimeMillis());
 
-    @Column(name = "ref_per_contact")
-    private String refPersonContact;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
+    private Date createdTimeStamp = new Date(System.currentTimeMillis());
 
-    @Column(name = "team_leader")
-    private String teamLeader;
+    @ManyToOne
+    @JoinColumn(name = "created_by",  referencedColumnName = "id")
+    private Employee createdBy;
+
+    @ManyToOne
+    @JoinColumn(name = "terminated_by",  referencedColumnName = "id")
+    private Employee terminatedBy;
+
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = true)
+    private Date terminatedDate = null;
+
+    @Column(nullable = true)
+    private String otp = null;
+
+    @ManyToOne
+    @JoinColumn(name = "team",  referencedColumnName = "id")
+    private Team team;
+
+    @ManyToOne
+    @JoinColumn(name = "role",  referencedColumnName = "id")
+    private Role role;
+
+    @Column(nullable = true)
+    private String solt;
 }
