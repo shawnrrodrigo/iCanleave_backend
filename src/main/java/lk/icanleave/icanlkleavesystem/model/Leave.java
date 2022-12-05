@@ -1,5 +1,5 @@
 package lk.icanleave.icanlkleavesystem.model;
-
+//resolving roleback issue
 import lk.icanleave.icanlkleavesystem.model.customEnum.LeaveSession;
 import lk.icanleave.icanlkleavesystem.model.customEnum.LeaveStatus;
 import lombok.AllArgsConstructor;

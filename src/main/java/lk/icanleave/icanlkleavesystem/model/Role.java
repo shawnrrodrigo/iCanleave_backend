@@ -1,5 +1,5 @@
 package lk.icanleave.icanlkleavesystem.model;
-
+//resolving roleback issue
 import lk.icanleave.icanlkleavesystem.model.customEnum.RoleStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
