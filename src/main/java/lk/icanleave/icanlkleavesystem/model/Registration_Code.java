@@ -1,6 +1,5 @@
 package lk.icanleave.icanlkleavesystem.model;
 //resolving roleback issue
-import lk.icanleave.icanlkleavesystem.model.customEnum.ActionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,20 +13,19 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuditLog {
+@Table(name="registration_code")
+public class Registration_Code {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
-    @Column(length = 5)
-    private int createdBy;
+    private String value;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
+    @Column(name = "created_date",nullable = false)
     private Date createdTimeStamp = new Date(System.currentTimeMillis());
 
-    private String description;
-
-    @Enumerated(EnumType.STRING)
-    private ActionType actionType;
+    @OneToOne
+    @JoinColumn(name = "employee_id",referencedColumnName = "id")
+    private Employee employee;
 }
