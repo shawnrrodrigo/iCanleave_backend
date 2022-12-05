@@ -24,12 +24,17 @@ public class LeaveController {
 
     @PostMapping()
     public Leave requestLeave(@RequestHeader(value = "UserId") HttpHeaders empId, @RequestBody Leave leaveRecord){
+
+
         System.out.println("employee Id"+empId);
+        String userIdstr = empId.get("userid").toString();
+        userIdstr = userIdstr.substring(1, userIdstr.length() -1);
+        leaveRecord.setUserId(userIdstr);
+        System.out.println(leaveRecord.toString());
         return leaveRepository.save(leaveRecord);
     }
 //    private ResponseEntity<String> requestLeave(@RequestHeader(value = "UserId") HttpHeaders id, Employee emp){
 //        return leaveRepository.save(emp);
 //    }
-
 
 }
