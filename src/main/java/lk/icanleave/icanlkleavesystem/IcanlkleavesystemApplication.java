@@ -17,8 +17,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import java.time.LocalDate;
 
 @SpringBootApplication
-//public class IcanlkleavesystemApplication implements CommandLineRunner {
-public class IcanlkleavesystemApplication{
+public class IcanlkleavesystemApplication implements CommandLineRunner {
+
     public static void main(String[] args) {
         SpringApplication.run(IcanlkleavesystemApplication.class, args);
     }
@@ -61,4 +61,5 @@ public class IcanlkleavesystemApplication{
 //        roleService.saveRole(employee);
 //        roleService.saveRole(teamleader);
 //    }
+
 }

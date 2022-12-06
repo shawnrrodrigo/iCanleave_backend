@@ -1,7 +1,7 @@
 package lk.icanleave.icanlkleavesystem.controller;
 
 import lk.icanleave.icanlkleavesystem.model.Employee;
-import lk.icanleave.icanlkleavesystem.model.Leave;
+import lk.icanleave.icanlkleavesystem.model.LeaveRecord;
 import lk.icanleave.icanlkleavesystem.repository.LeaveRepository;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +18,12 @@ public class LeaveController {
     private LeaveRepository leaveRepository;
 
     @GetMapping
-    public List<Leave> getAllLeaveRecords(){
+    public List<LeaveRecord> getAllLeaveRecords(){
         return leaveRepository.findAll();
     }
 
     @PostMapping()
-    public Leave requestLeave(@RequestHeader(value = "UserId") HttpHeaders empId, @RequestBody Leave leaveRecord){
-
+    public LeaveRecord requestLeave(@RequestHeader(value = "UserId") HttpHeaders empId, @RequestBody LeaveRecord leaveRecord){
 
 //        System.out.println("employee Id"+empId);
 //        String userIdstr = empId.get("userid").toString();
@@ -36,5 +35,6 @@ public class LeaveController {
 //    private ResponseEntity<String> requestLeave(@RequestHeader(value = "UserId") HttpHeaders id, Employee emp){
 //        return leaveRepository.save(emp);
 //    }
+
 
 }
