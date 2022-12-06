@@ -1,6 +1,5 @@
 package lk.icanleave.icanlkleavesystem.model;
-//resolving roleback issue
-import lk.icanleave.icanlkleavesystem.model.customEnum.ActionType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,20 +13,14 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuditLog {
+public class Holiday {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int leaveId;
 
-    @Column(length = 5)
-    private String createdBy;
-
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
-    private Date createdTimeStamp = new Date(System.currentTimeMillis());
+    private Date date;
 
+    @Column(nullable = false)
     private String description;
-
-    @Enumerated(EnumType.STRING)
-    private ActionType actionType;
 }

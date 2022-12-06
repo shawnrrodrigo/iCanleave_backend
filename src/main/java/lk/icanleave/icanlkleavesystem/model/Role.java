@@ -7,7 +7,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -32,4 +35,7 @@ public class Role {
     @Enumerated(EnumType.STRING)
     @Column(name="role_status")
     private RoleStatus status;
+
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "role", orphanRemoval = true, targetEntity = Employee.class)
+    private List<Employee> employeeList = new ArrayList<>();
 }
