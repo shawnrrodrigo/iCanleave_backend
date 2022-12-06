@@ -32,11 +32,10 @@ public class EmployeeController {
     @GetMapping()
     private ResponseEntity<Object> getAllEmployee(){
         List<Employee> result = employeeService.getAllEmployee();
-        return ResponseHandler.generateResponse("Successfully retrieved data!", HttpStatus.OK, result);
+        return ResponseHandler.generateResponse("Success", HttpStatus.OK, result);
     }
 
     private String getAllEmployees1(){
-
         AuditLog auditLog = new AuditLog();
         auditLog.setCreatedBy("1");
         auditLog.setDescription("This is a test");
@@ -45,11 +44,9 @@ public class EmployeeController {
         return "hello world";
     }
 
-    @GetMapping("/get")
-    @ResponseBody
-    public Employee getEmployeeByID(){
-        Employee employee = employeeService.getEmployeeById("123456789").get();
-        System.out.println(employee.toString());
-        return employee;
+    @GetMapping("/{employeeId")
+    public ResponseEntity<Object> getEmployeeByID(@PathVariable("employeeId") Long employeeId){
+        Optional<Employee> employee = employeeService.getEmployeeById();
+        if(employee.)
     }
 }
