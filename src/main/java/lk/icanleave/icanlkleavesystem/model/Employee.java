@@ -15,9 +15,8 @@ import java.util.Date;
 @Table(name="Employee")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(length = 5)
-    private int id;
+//    @Column(length = 5)
+    private String id;
 
     @Column(nullable = false)
     private String name;
@@ -69,4 +68,5 @@ public class Employee {
 
     @Column(nullable = true)
     private String solt;
+
 }

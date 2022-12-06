@@ -1,22 +1,26 @@
 package lk.icanleave.icanlkleavesystem.model;
-//resolving roleback issue
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Logger {
+public class Holiday {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int leaveId;
 
-    @Column(length = 200)
-    private String log;
+    @Column(nullable = false)
+    private Date date;
+
+    @Column(nullable = false)
+    private String description;
 }

@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Embeddable
 public class LeaveWalletKey implements Serializable {
     @Column(name = "employee_id",length = 5)
-    private int employee_id;
+    private String employee_id;
 
     @Column(name = "leave_id")
     private int leave_id;
