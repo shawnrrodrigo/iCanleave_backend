@@ -20,17 +20,13 @@ import java.util.Objects;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int roleId;
 
-    private String name;
+    private String roleName;
 
-    @ManyToOne
-    @JoinColumn(name = "created_by",referencedColumnName = "id")
-    private Employee employee;
+    private String createdBy;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
-    private Date createdTimeStamp = new Date(System.currentTimeMillis());
+    private Date createdDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name="role_status")
