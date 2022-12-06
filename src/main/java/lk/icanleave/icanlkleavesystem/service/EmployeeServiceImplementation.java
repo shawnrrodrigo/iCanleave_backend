@@ -27,9 +27,13 @@ public class EmployeeServiceImplementation implements EmployeeService{
 
     @Override
     public Optional<Employee> getEmployeeById(String id) {
-        System.out.println(id);
         Employee employee = empRepository.findById(id).get();
         System.out.println(employee);
         return Optional.of(employee);
+    }
+
+    @Override
+    public List<Employee> getAllEmployee() {
+        return (List<Employee>)empRepository.findAll();
     }
 }
