@@ -20,7 +20,7 @@ public class AuditLog {
     private long id;
 
     @Column(length = 5)
-    private int createdBy;
+    private String createdBy;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
